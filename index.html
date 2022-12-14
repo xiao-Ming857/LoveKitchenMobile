@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>爱就一个字，我只说一次</title>
+    <link rel="title icon" href="./images/aixin.png">
+    <link rel="stylesheet" href="./css/aixin.css" media="all">
+    <script>
+        //判断客户端设备，选择写入meta
+        function init_viewport() {
+            if (navigator.userAgent.indexOf('Android') != -1) {
+                var version = parseFloat(RegExp.$1);
+                if (version > 2.3) {
+                    var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+                    var phoneScale = parseInt(width) / 500;
+                    document.write('<meta name="viewport" content="width=500, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+                } else {
+                    document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi, user-scalable=0">');
+                }
+            } else if (navigator.userAgent.indexOf('iPhone') != -1) {
+                var phoneScale = parseInt(window.screen.width) / 500;
+                document.write('<meta name="viewport" content="width=500, min-height=750, initial-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=0" /> ');         //0.75   0.82
+            } else {
+                document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> '); //0.75  0.82
+            }
+        }
+        init_viewport();
+    </script>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #div_container {
+            /*最外层div，用于居中兼容PC和移动*/
+            width: 500px;
+            margin: 0px auto;
+            position: relative;
+            /*background-color: #FAFAFA;*/
+            font-size: 1em;
+        }
+
+
+        .div_pure_words {
+            /*文字部分的最外层，用于定位*/
+            position: relative;
+            display: none;
+        }
+
+        .div_pure_words_bg {
+            /*背景设置在这里*/
+            background-repeat: repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+            width: 500px;
+            min-height: 500px;
+        }
+
+        .div_pure_words_height {
+            visibility: hidden;
+            padding: 30px;
+            text-align: justify;
+            /*为了使文字两端对齐 */
+            white-space: pre-wrap;
+            /*保留换行效果*/
+            font-size: 1.1em;
+            font-family: "Microsoft YaHei", "Arial";
+            color: white;
+        }
+
+        .div_pw_typed {
+            position: absolute;
+            left: 0;
+            right: 0;
+            /*4个方向定位使div充满整个画画*/
+            top: 0;
+            bottom: 0;
+            /*4个方向定位使div充满整个画画*/
+            width: 500px;
+            background: rgba(255, 255, 255, 0.8);
+            /*半透明效果*/
+            padding: 30px;
+            text-align: justify;
+            /*为了使文字两端对齐 */
+        }
+
+        #span_pw_typed {
+            width: 100%;
+            /*为了使文字两端对齐 */
+            white-space: pre-wrap;
+            /*保留换行效果*/
+            font-size: 1.1em;
+            font-family: "Microsoft YaHei", "Arial";
+        }
+
+        #div_start_bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 44;
+            background-color: white;
+            background-image: url('./images/chufang.jpg');
+        }
+
+        .shopName {
+            /*使用你自己的字体*/
+            font-family: biaoti;
+            font-style: oblique;
+            font-size: 18px;
+            font-weight: 900;
+            color: rgb(255, 140, 160);
+        }
+
+        /*使用前必须先定义*/
+        @font-face {
+            /* 字体名称随意起 */
+            font-family: biaoti;
+            /*你下载字体所在的位置*/
+            src: url('./font/TrueType.ttf');
+        }
+
+        .shopNameTxt {
+            /*使用你自己的字体*/
+            font-family: wenben;
+            font-style: oblique;
+            font-size: 18px;
+            font-weight: 900;
+            color: rgb(255, 140, 160);
+        }
+
+        /*使用前必须先定义*/
+        @font-face {
+            /* 字体名称随意起 */
+            font-family: wenben;
+            /*你下载字体所在的位置*/
+            src: url('./font/LoveTrueType.ttf');
+        }
+
+    </style>
+
+    <!-- 按钮部分的样式 -->
+    <link type="text/css" rel="stylesheet" href="css/theme_public_btn.css">
+
+    <!-- 按需加载，选择此片头时方才加载 -->
+    <link type="text/css" rel="stylesheet" href="css/start_onlyyou.css">
+</head>
+
+<body>
+    <div id="div_container"> <!-- 最外层div，用于居中兼容PC和移动 -->
+        <div id="div_start_bg"></div> <!-- 用于遮挡主题，作为片头的背景 -->
+        <!-- 按需加载，选择此片头时方才加载 -->
+        <div id="div_onlyyou"><!-- 用于设置背景 -->
+            <div id="div_oy_inner"><!-- 用于存放content -->
+                <div class="div_oy_text">
+                    <h1 class="shopName" style="text-align: center;">厨子&美食家</h1>
+                    <img class="img_oy_text" src="">
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <p class="shopNameTxt">每天做好吃的给你</p>
+                    <p class="shopNameTxt">你睡不着时给你讲故事</p>
+                    <p class="shopNameTxt">给你自由去做喜欢的事情</p>
+                    <p class="shopNameTxt">一直都觉得很幸运，世界这么大，能与你相遇相知</p>
+                    <p class="shopNameTxt">无论我本人多么平庸，我总觉得对你的爱很美</p>
+                    <p class="shopNameTxt">我做事三分钟热度，却也爱你这么久</p>
+                    <p class="shopNameTxt">每次想起你，我都发现自己是微笑着的</p>
+                    <p class="shopNameTxt">秒回不是碰巧，而是我一直在等你的消息</p><br>
+                    <p class="shopNameTxt">山有木兮木有枝，心悦君兮君不知
+                    <p class="shopNameTxt">愿有岁月可回头，且以深情共白首</p>
+                    <p class="shopNameTxt">春林初盛，春水初生，春风十里，不如你</p>
+                    <p class="shopNameTxt">只缘感君一回顾，使我思君朝与暮</p>
+                    <p class="shopNameTxt">待我长发及腰，少年娶我可好；</p>
+                    <p class="shopNameTxt">待你青丝绾正，铺十里红妆可愿</p><br>
+                    <p class="shopNameTxt">我本想浪荡一生，却不小心钟情你一人</p>
+                    <p class="shopNameTxt">鸟患了恐高症，鱼变成了旱鸭子，所有逻辑都被推翻，我还是要喜欢你</p>
+                    <p class="shopNameTxt">遇见你是多小的概率我不知道，我只想把失去你的概率变为零</p>
+                </div>
+            </div>
+        </div>
+        <!-- 以上是动画和视频片头  以上是动画和视频片头  以上是动画和视频片头  以上是动画和视频片头 -->
+
+
+        <div id='div_btn_container'> <!-- 按钮部分的最外层，处于文档流之中 -->
+            <div id="div_btn_inner"> <!-- 按钮部分内层，用于定位 -->
+                <div class='div_music_tips'></div>
+                <div class="div_btn" id="div_music" onclick="music_switch()"> <!-- 音乐按钮部分 -->
+                    <img id='img_music' width='25px' src='images/emoji_kelian.jpg'
+                        style='animation:music_play_rotate 1s linear infinite'>
+                    <audio loop="loop" autoplay="autoplay" id="audio_music">
+                        <source src='audio/love.mp3'>
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div id="aixin">
+            <canvas id="pinkboard" width="805" height="946">
+                Canvas Not Support
+            </canvas>
+            <div class="main"></div>
+        </div>
+    </div>
+
+
+
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src='js/theme_common.js'></script> <!-- 音乐控制设置 -->
+    <script src="js/aixin.js"></script>
+    <script>
+        var window_height = $(window).height();
+        // var pure_words_content=theme_content['pure_words_content'];
+        var str_cursorChar;
+        var typed_bool;
+
+        var interval_pw_height;
+        var height_div_pw = $(".div_pure_words_height").height();
+        function init_pure_words() {
+            //允许内容为空时直接展示，不设置为随机内容，用于空主题
+            if (typeof (pure_words_content) == 'undefined') { //处理全新作品
+                var array_str_temp = [];
+                random_text_array(array_str_temp, 12); //获取随机的模板文字
+                // array_str_temp.push('你现在看到的只是案例，文字是可以自定义哒，6000字以下');
+                pure_words_content = array_str_temp.join('\r\r');
+            }
+            $(".div_pure_words_height").html(pure_words_content + '22222');  //初始化复制内容，撑开文档高度            
+
+            // 初始化设置div的bg图片 初始化设置div的bg图片
+            if (typeof (theme_content['bg_style_pure_words']) != 'undefined' && theme_content['bg_style_pure_words'] == 'bg_opacity') {
+                if (typeof (theme_content['bg_img']) != 'undefined' && theme_content['bg_img'] != '') {
+                    $(".div_pure_words_bg").css({ "background-image": "url(" + theme_content['bg_img'] + ")" });
+                }
+            }
+        }
+
+    </script>
+
+    <!-- 按需加载，选择此片头时方才加载 -->
+
+    <script>
+        var start_id;
+        $(function () {
+            //此事件为触发互动创意
+            start_id = 'onlyyou'; //可能为null
+            init_start(start_id);
+        });
+
+        function init_start(start_id) {
+            console.log('init_start ->' + start_id);
+            switch (start_id) {
+                case 'onlyyou':
+                    $('#div_onlyyou').show();
+                    init_onlyyou();
+                    break;
+                default:
+                    init_theme();
+            }
+        }
+
+        //开始动画主体部分
+        function init_theme() {
+            console.log('init_theme');
+            $('#div_start_bg').fadeOut();
+            init_pure_words();
+        }
+
+    </script>
+
+    <!-- 按需加载，选择此片头时方才加载 -->
+    <script src="js/start_onlyyou.js"></script>
+
+    <script>
+        var attachment = 'null'; //可能为null
+
+        function init_attachment() {  //开始attachment
+            console.log('init_attachment ->' + attachment);
+            switch (attachment) {
+                case 'timer':
+                    init_at_timer();
+                    break;
+                default:
+                    return;
+            }
+        }
+    </script>
+</body>
+
+</html>

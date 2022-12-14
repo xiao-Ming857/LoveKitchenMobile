@@ -1,0 +1,42 @@
+#aixin {
+    position: absolute;
+    top: 6%;
+    left: 0%;
+    width: 100%;
+    height: 40%;
+    z-index: 999;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#aixin.heart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+#aixin.heart img {
+    width: 20px;
+    height: 20px;
+}
+
+#aixin.main {
+    text-align: center;
+    border-radius: 20px;
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#aixin.main h1 {
+    color: pink;
+}
